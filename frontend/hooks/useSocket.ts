@@ -11,7 +11,7 @@ export default function useSocket() {
   useEffect(() => {
     if (!user) return;
 
-    const wss = new WebSocket(BACKEND_URL);
+    const wss = new WebSocket(BACKEND_URL!);
 
     wss.onopen = () => {
       if (socket) return;
