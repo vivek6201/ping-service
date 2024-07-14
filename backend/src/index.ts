@@ -24,6 +24,13 @@ app.use("/api/v1", routes);
 
 SocketManager.getInstance(server);
 
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "server is up",
+  });
+});
+
 server.listen(port, () => {
   console.log("server is up at: " + port);
 });
