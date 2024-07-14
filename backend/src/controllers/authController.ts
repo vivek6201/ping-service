@@ -63,7 +63,9 @@ export const loginController = async (req: Request, res: Response) => {
     res.cookie("jwt", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      maxAge: 24 * 60 * 60 * 1000,
+      sameSite: "strict",
+      maxAge: 1000 * 60 * 60 * 24, // 1 day
+      path: "/",
     });
     res.status(200).json({
       success: true,
@@ -142,7 +144,9 @@ export const signupController = async (req: Request, res: Response) => {
     res.cookie("jwt", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      maxAge: 24 * 60 * 60 * 1000,
+      sameSite: "strict",
+      maxAge: 1000 * 60 * 60 * 24, // 1 day
+      path: "/",
     });
     return res.status(201).json({
       success: true,
@@ -158,7 +162,7 @@ export const signupController = async (req: Request, res: Response) => {
 };
 
 export const logoutController = async (req: Request, res: Response) => {
-  res.cookie("jwt", "", { expires: new Date(0), path: '/' });
+  res.cookie("jwt", "", { expires: new Date(0), path: "/" });
   res.status(200).json({
     success: true,
     message: "Logged out successfully",
