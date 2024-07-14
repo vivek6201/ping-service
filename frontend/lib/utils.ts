@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const BACKEND_URL = "https://ping-service-sdcy.onrender.com";
+export const BACKEND_URL = "https://ping-service-sdcy.onrender.com/api/v1";
 
 export const fetcher = async (url: string) =>
   axios
