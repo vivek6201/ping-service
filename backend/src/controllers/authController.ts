@@ -63,7 +63,7 @@ export const loginController = async (req: Request, res: Response) => {
     res.cookie("jwt", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: "none",
       maxAge: 1000 * 60 * 60 * 24, // 1 day
       path: "/",
     });
@@ -144,7 +144,7 @@ export const signupController = async (req: Request, res: Response) => {
     res.cookie("jwt", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      sameSite: "none",
       maxAge: 1000 * 60 * 60 * 24, // 1 day
       path: "/",
     });
