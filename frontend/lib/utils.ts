@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const BACKEND_URL = process.env.BACKEND_URL;
+export const BACKEND_URL = "https://ping-service-sdcy.onrender.com";
 
 export const fetcher = async (url: string) =>
   axios
@@ -15,4 +15,3 @@ export const fetcher = async (url: string) =>
     })
     .then((res) => res.data)
     .catch((error) => console.log(error));
-
