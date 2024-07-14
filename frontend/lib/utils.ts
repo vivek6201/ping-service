@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const BACKEND_URL = process.env.NEXT_APP_BACKEND_URL || "http://localhost:4000";
+export const BACKEND_URL = process.env.NEXT_APP_BACKEND_URL;
 
 export const fetcher = async (url: string) =>
   axios
